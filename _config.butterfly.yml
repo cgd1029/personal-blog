@@ -19,6 +19,7 @@ menu:
   归档: /archives/ || fas fa-archive
   分类: /categories/ || fas fa-folder-open
   标签: /tags/ || fas fa-tags
+  图库: /gallery/ || fas fa-images
   关于: /about/ || fas fa-user
   GitHub: https://github.com/cgd1029 || fab fa-github
 
@@ -69,6 +70,10 @@ search:
       hitsPerPage: 8
     # CDN：留空时从当前博客的 /personal-blog/search.json 读取索引。
     CDN:
+
+# lightbox：点击文章或图库中的图片时，使用 Fancybox 展示大图。
+# Fancybox 的脚本和样式由 Butterfly 按需加载，不需要在本项目中额外安装依赖。
+lightbox: fancybox
 
 # busuanzi：使用 Butterfly 内置的不蒜子脚本展示基础访问统计。
 # Hexo 只会生成统计数字的显示位置，实际数据由第三方不蒜子服务计算并返回。
