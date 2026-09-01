@@ -160,6 +160,17 @@ ignore:
 # theme：当前启用的主题名称；butterfly 对应已安装的 Butterfly 主题
 theme: butterfly
 
+# 本地搜索：生成供 Butterfly 在浏览器中读取的文章搜索索引
+search:
+  # path：搜索索引的生成文件名；JSON 体积较小，也能避免 XML 编码问题
+  path: search.json
+  # field：只收录正式文章，不把关于、分类和标签汇总页作为搜索结果
+  field: post
+  # content：把文章正文写入索引，使用户既能搜索标题，也能搜索正文
+  content: true
+  # format：移除正文中的 HTML 标签，只保留便于搜索和展示的文字
+  format: striptags
+
 # 部署
 ## 文档：https://hexo.io/docs/one-command-deployment
 # deploy：使用 hexo deploy 时读取的部署配置

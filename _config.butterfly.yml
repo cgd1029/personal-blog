@@ -49,6 +49,27 @@ subtitle:
   source: false
   sub:
 
+# search：配置 Butterfly 提供的站内搜索界面和交互方式。
+search:
+  # use：选择 local_search，表示在浏览器中读取本地生成的 search.json。
+  use: local_search
+  # placeholder：搜索输入框为空时显示的提示文字。
+  placeholder: 输入文章标题或正文关键词
+  # local_search：本地搜索的结果加载和显示规则。
+  local_search:
+    # preload：false 表示用户打开搜索框时再加载索引，减少首页首次加载量。
+    preload: false
+    # top_n_per_article：每篇文章最多显示一段匹配正文。
+    top_n_per_article: 1
+    # unescape：false 表示不额外还原搜索索引中的 HTML 转义字符。
+    unescape: false
+    # pagination：当前文章较少，不对搜索结果分页。
+    pagination:
+      enable: false
+      hitsPerPage: 8
+    # CDN：留空时从当前博客的 /personal-blog/search.json 读取索引。
+    CDN:
+
 # toc：文章目录设置。
 toc:
   # post：是否在普通文章中显示目录。

@@ -14,9 +14,10 @@
 - 已创建“分类”“标签”和“关于”独立页面，并完成主要导航配置。
 - 已配置自定义头像、页面顶部图片和网站背景。
 - 已添加 GitHub Actions 自动构建与 Pages 部署配置。
+- 已启用 Butterfly 本地站内搜索。
 - 已验证本地静态文件生成，输出目录为 `public/`。
 - 已配置 GitHub 远程仓库 `cgd1029/personal-blog`。
-- 尚未完成 GitHub Pages 的正式发布配置。
+- 已通过 GitHub Pages 正式发布并完成线上访问验证。
 - 已按项目站点配置网址 `https://cgd1029.github.io/personal-blog/`。
 - `_config.yml` 中的 `deploy.type` 仍为空，当前不能使用 `hexo deploy` 完成一键部署。
 
@@ -91,6 +92,7 @@ public/
 | `hexo-generator-archive` | 生成文章归档页 |
 | `hexo-generator-category` | 生成分类页 |
 | `hexo-generator-tag` | 生成标签页 |
+| `hexo-generator-searchdb` | 根据文章标题和正文生成本地搜索索引 |
 | `hexo-renderer-marked` | 将 Markdown 转换为 HTML |
 | `hexo-renderer-pug` | 渲染 Butterfly 使用的 Pug 页面模板 |
 | `hexo-renderer-stylus` | 将 Stylus 样式转换为 CSS |
@@ -452,7 +454,7 @@ git push
 
 ### 10. GitHub Pages 发布说明
 
-本项目已经创建 `.github/workflows/pages.yml`，用于在 `main` 分支收到新提交后自动构建并部署网站。远程仓库仍需要在 **Settings → Pages → Source** 中选择 **GitHub Actions**。
+本项目已经创建 `.github/workflows/pages.yml`，用于在 `main` 分支收到新提交后自动构建并部署网站。仓库的 **Settings → Pages → Source** 已选择 **GitHub Actions**，首次部署和线上访问均已验证成功。
 
 当前发布配置如下：
 
@@ -462,13 +464,13 @@ git push
 - Hexo 输出目录：`public/`
 - Pages 来源：GitHub Actions 构建产物
 
-正式上线还需要完成：
+每次更新后的自动发布过程是：
 
-1. 提交当前源文件和工作流。
-2. 把提交推送到 GitHub 的 `main` 分支。
-3. 在仓库 Pages 设置中把来源选择为 GitHub Actions。
-4. 检查 GitHub Actions 的构建和部署任务是否成功。
-5. 访问线上网址检查首页、图片和文章链接。
+1. 在本地修改文章或配置并完成预览。
+2. 把修改提交并推送到 GitHub 的 `main` 分支。
+3. GitHub Actions 自动安装依赖并运行 Hexo。
+4. 自动上传 `public/` 并部署到 GitHub Pages。
+5. 检查 Actions 状态和线上网页是否已更新。
 
 如果使用 GitHub Actions，通常由自动任务执行以下链路：
 
