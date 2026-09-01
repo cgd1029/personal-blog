@@ -2,57 +2,103 @@
 ## 文档：https://hexo.io/docs/configuration.html
 ## 源代码：https://github.com/hexojs/hexo/
 
-# 站点
-title: Hexo
-subtitle: ''
-description: ''
+# 站点：定义整个博客的基本身份信息
+# title：网站标题，通常显示在浏览器标题、页头和主题页面中
+title: Laor
+# subtitle：网站副标题；是否显示以及显示位置由主题决定
+subtitle: 'cgd'
+# description：网站简介，主题或搜索引擎元数据可能会使用它
+description: '031029'
+# keywords：网站关键词，支持填写多个值；留空表示暂未设置
 keywords:
-author: John Doe
-language: en
+# author：默认作者名称；文章未单独指定作者时可使用此值
+author: Laor
+# language：网站和主题界面的语言，zh-CN 表示简体中文
+language: zh-CN
+# timezone：网站时区；留空时使用运行 Hexo 的计算机时区
 timezone: ''
 
-# 网址
-## 在此设置站点网址。例如使用 GitHub Pages 时，将网址设置为“https://username.github.io/project”
-url: http://example.com
+# 网址：定义网站的正式地址和文章链接结构
+## 当前仓库名为 personal-blog，因此使用 GitHub Pages 项目站点地址
+# url：网站部署后的完整网址，必须以 http:// 或 https:// 开头
+url: https://cgd1029.github.io/personal-blog
+# root：网站相对于域名根目录的访问前缀；项目站点必须包含仓库名并以斜杠结尾
+root: /personal-blog/
+# permalink：文章永久链接格式；下列变量依次表示年、月、日和文章标题标识
 permalink: :year/:month/:day/:title/
+# permalink_defaults：为永久链接中的变量设置默认值；留空表示使用 Hexo 默认值
 permalink_defaults:
+# pretty_urls：控制 Hexo 是否从对外链接中移除 index.html 或 .html
 pretty_urls:
-  trailing_index: true # 设置为 false 可移除永久链接末尾的“index.html”
-  trailing_html: true # 设置为 false 可移除永久链接末尾的“.html”
+  # trailing_index：设置为 false 可从链接末尾移除“index.html”
+  trailing_index: true
+  # trailing_html：设置为 false 可从普通页面链接末尾移除“.html”，不影响 index.html
+  trailing_html: true
 
-# 目录
+# 目录：定义 Hexo 从哪里读取内容，以及把不同页面生成到哪里
+# source_dir：源内容目录，Markdown 文章等原始内容保存在这里
 source_dir: source
+# public_dir：静态网站输出目录，生成后的 HTML、CSS 和 JavaScript 位于这里
 public_dir: public
+# tag_dir：标签汇总页的输出目录
 tag_dir: tags
+# archive_dir：文章归档页的输出目录
 archive_dir: archives
+# category_dir：分类汇总页的输出目录
 category_dir: categories
+# code_dir：可供文章引用的代码文件目录；它位于 source_dir 之下
 code_dir: downloads/code
+# i18n_dir：多语言资源目录；:lang 会被替换为具体语言代码
 i18n_dir: :lang
+# skip_render：匹配到的源文件不经过 Hexo 渲染，而是原样复制到输出目录
 skip_render:
 
-# 写作
-new_post_name: :title.md # 新文章的文件名
+# 写作：定义新建文章、草稿、资源和代码高亮的默认行为
+# new_post_name：新文章文件名格式；:title 会被替换为创建文章时输入的标题
+new_post_name: :title.md
+# default_layout：新建内容时默认使用的布局，post 表示普通文章
 default_layout: post
-titlecase: false # 将标题转换为首字母大写格式
+# titlecase：是否自动把英文标题转换为单词首字母大写格式
+titlecase: false
+# external_link：控制指向其他网站的链接如何打开
 external_link:
-  enable: true # 在新标签页中打开外部链接
-  field: site # 应用于整个站点
+  # enable：是否在新的浏览器标签页中打开外部链接
+  enable: true
+  # field：site 表示应用于整个网站，post 表示只应用于文章内容
+  field: site
+  # exclude：不按上述规则处理的外部网站域名；留空表示不排除
   exclude: ''
+# filename_case：文件名大小写转换；0 不转换，1 转为小写，2 转为大写
 filename_case: 0
+# render_drafts：是否在普通生成和预览中渲染草稿
 render_drafts: false
+# post_asset_folder：是否为每篇文章启用同名资源文件夹，用于存放图片等附件
 post_asset_folder: false
+# relative_link：是否生成相对于当前页面的链接；false 时按网站根路径生成
 relative_link: false
+# future：是否显示发布日期晚于当前时间的文章
 future: true
+# syntax_highlighter：选择代码块语法高亮工具；当前使用 highlight.js
 syntax_highlighter: highlight.js
+# highlight：highlight.js 的具体显示设置
 highlight:
+  # line_number：是否显示代码行号
   line_number: true
+  # auto_detect：未标明代码语言时是否自动检测语言
   auto_detect: false
+  # tab_replace：用于替换制表符的字符串；留空表示不替换
   tab_replace: ''
+  # wrap：是否用 Hexo 的代码块容器包裹高亮结果
   wrap: true
+  # hljs：是否为代码样式类名添加 hljs 前缀，以适配部分主题
   hljs: false
+# prismjs：选择 PrismJS 作为高亮工具时使用的设置；当前不会生效
 prismjs:
+  # preprocess：是否在渲染前由 Hexo 预处理代码块
   preprocess: true
+  # line_number：是否显示代码行号
   line_number: true
+  # tab_replace：用于替换制表符的字符串；留空表示不替换
   tab_replace: ''
 
 # 首页设置
@@ -60,45 +106,63 @@ prismjs:
 # per_page：每页显示的文章数量（设置为 0 可禁用分页）
 # order_by：文章排序方式（默认按日期降序排列）
 index_generator:
+  # path：首页所在路径；空字符串表示网站根路径
   path: ''
+  # per_page：首页每页显示的文章数量；设置为 0 可禁用分页
   per_page: 10
+  # order_by：首页文章排序规则；-date 表示按发布日期从新到旧排列
   order_by: -date
 
-# 分类与标签
+# 分类与标签：定义未分类文章的默认分类，以及分类和标签的网址别名
+# default_category：文章没有填写分类时使用的默认分类
 default_category: uncategorized
+# category_map：把分类名称映射为自定义网址片段；留空表示不映射
 category_map:
+# tag_map：把标签名称映射为自定义网址片段；留空表示不映射
 tag_map:
 
-# 元数据元素
+# 元数据元素：控制生成页面中的 HTML 元数据
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+# meta_generator：是否在 HTML 中写入说明页面由 Hexo 生成的 generator 元标签
 meta_generator: true
 
 # 日期与时间格式
 ## Hexo 使用 Moment.js 解析和显示日期
 ## 可以按照以下文档自定义日期格式
 ## http://momentjs.com/docs/#/displaying/format/
+# date_format：页面显示日期时使用的格式
 date_format: YYYY-MM-DD
+# time_format：页面显示时间时使用的格式
 time_format: HH:mm:ss
 ## updated_option 支持“mtime”“date”和“empty”
+# updated_option：文章未填写 updated 时如何确定更新时间；mtime 使用文件修改时间
 updated_option: 'mtime'
 
-# 分页
+# 分页：控制归档、分类等列表页面的分页方式
 ## 将 per_page 设置为 0 可禁用分页
+# per_page：列表页每页显示的文章数量
 per_page: 10
+# pagination_dir：第二页及以后页面的网址目录名称，例如 page/2
 pagination_dir: page
 
 # 包含或排除文件
 ## include 和 exclude 选项仅适用于“source/”文件夹
+# include：额外包含 source 中默认会被忽略的隐藏文件或目录
 include:
+# exclude：从 source 的处理范围中排除指定文件或目录
 exclude:
+# ignore：从整个项目的处理范围中忽略指定文件或目录
 ignore:
 
 # 扩展
 ## 插件：https://hexo.io/plugins/
 ## 主题：https://hexo.io/themes/
-theme: landscape
+# theme：当前启用的主题名称；butterfly 对应已安装的 Butterfly 主题
+theme: butterfly
 
 # 部署
 ## 文档：https://hexo.io/docs/one-command-deployment
+# deploy：使用 hexo deploy 时读取的部署配置
 deploy:
+  # type：部署器类型；留空表示尚未配置一键部署功能
   type: ''

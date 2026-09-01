@@ -1,0 +1,83 @@
+# Butterfly 主题的独立配置文件。
+# 文件名中的 butterfly 与 _config.yml 里的 theme: butterfly 对应。
+# 这里只填写当前阶段需要覆盖的选项；未填写的选项继续使用主题默认值。
+
+# 导航栏：控制网站顶部导航区域的基础显示方式。
+nav:
+  # logo：导航栏图标；留空时不显示单独的导航图标。
+  logo:
+  # display_title：是否在导航栏显示网站标题。
+  display_title: true
+  # display_post_title：进入文章后是否在导航栏显示文章标题。
+  display_post_title: true
+  # fixed：页面滚动时是否固定导航栏。
+  fixed: false
+
+# menu：配置导航菜单，格式为“显示名称: 页面路径 || 图标类名”。
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
+  关于: /about/ || fas fa-user
+  GitHub: https://github.com/cgd1029 || fab fa-github
+
+# social：侧栏使用的社交链接，键为图标类名，值包含地址、说明和图标颜色。
+social:
+  fab fa-github: https://github.com/cgd1029 || GitHub || '#24292e'
+
+# favicon：浏览器标签页图标；当前使用 Butterfly 自带图标。
+favicon: /img/favicon.png
+
+# avatar：侧栏头像；图片来自 source/img/头像.jpg。
+avatar:
+  # img：浏览器访问路径；Hexo 会把 source/img/头像.jpg 复制到 public/img/头像.jpg。
+  img: /img/头像.jpg
+  # effect：是否让头像持续旋转。
+  effect: false
+
+# default_top_img：页面顶部默认大图；未单独指定顶部图的页面都会使用它。
+default_top_img: /img/背景.jpg
+
+# background：整个网站的背景，可以填写颜色或图片访问路径。
+background: /img/背景.jpg
+
+# subtitle：首页副标题；当前先关闭，后续确定文案后再启用。
+subtitle:
+  enable: false
+  effect: true
+  source: false
+  sub:
+
+# toc：文章目录设置。
+toc:
+  # post：是否在普通文章中显示目录。
+  post: true
+  # page：是否在独立页面中显示目录。
+  page: false
+  # number：是否显示章节编号。
+  number: true
+  # expand：是否默认展开所有目录层级。
+  expand: false
+
+# comments：评论系统总开关；当前没有选择评论服务，因此关闭。
+comments:
+  use:
+  text: true
+  lazyload: false
+  count: false
+  card_post_count: false
+
+# aside：博客侧栏设置。
+aside:
+  # card_author：作者卡片及其跳转按钮。
+  card_author:
+    button:
+      enable: true
+      icon: fab fa-github
+      text: 访问我的 GitHub
+      link: https://github.com/cgd1029
+  # card_announcement：侧栏公告卡片。
+  card_announcement:
+    enable: true
+    content: 欢迎来到我的个人博客

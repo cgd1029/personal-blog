@@ -1,0 +1,76 @@
+# name：显示在 GitHub Actions 页面中的自动任务名称
+name: 部署 Hexo 到 GitHub Pages
+
+# on：定义什么时候启动这项自动任务
+on:
+  # push：main 分支收到新提交后自动运行
+  push:
+    branches:
+      - main
+  # workflow_dispatch：允许在 GitHub Actions 页面中手动运行
+  workflow_dispatch:
+
+# permissions：为读取代码和发布 Pages 提供最小必要权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# concurrency：同一时间只保留一项 Pages 部署，避免多个版本互相覆盖
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# jobs：定义自动任务包含的构建和部署工作
+jobs:
+  # build：把 Markdown 和主题转换为 public/ 中的静态网页
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout：把仓库代码下载到 GitHub 提供的临时运行环境
+      - name: 获取仓库代码
+        uses: actions/checkout@v6
+
+      # pnpm/action-setup：安装与本项目锁定文件配套的 pnpm
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.19.0
+
+      # setup-node：安装 Node.js，并根据 pnpm-lock.yaml 缓存依赖下载文件
+      - name: 安装 Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      # frozen-lockfile：严格按照 pnpm-lock.yaml 安装，防止云端依赖版本自行变化
+      - name: 安装项目依赖
+        run: pnpm install --frozen-lockfile
+
+      # build：执行 package.json 中的 hexo generate
+      - name: 生成静态网页
+        run: pnpm run build
+
+      # configure-pages：准备 GitHub Pages 的部署环境
+      - name: 配置 GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # upload-pages-artifact：只上传 Hexo 生成的 public/，不上传源文件作为网页
+      - name: 上传静态网页产物
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  # deploy：等待构建完成，再把上传的静态网页发布到 Pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 发布到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

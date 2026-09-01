@@ -1,8 +1,18 @@
+# macOS 自动生成的文件夹显示信息
 .DS_Store
+# Windows 自动生成的缩略图缓存
 Thumbs.db
+# Hexo 自动生成的本地缓存数据库
 db.json
+# 运行和调试过程中生成的日志文件
 *.log
+# pnpm 或 npm 安装的第三方依赖目录，可根据依赖清单重新安装
 node_modules/
+# Hexo 生成的静态网站目录，可根据源文件重新生成
 public/
+# Hexo 部署过程中产生的临时目录
 .deploy*/
+# Hexo 合并多个配置文件时生成的临时配置
 _multiconfig.yml
+# supertutor 生成的个人学习记录，不属于博客源代码
+.supertutor/

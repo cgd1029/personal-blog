@@ -1,2 +1,4 @@
+# allowBuilds：控制哪些依赖可以在安装过程中运行自身的构建脚本。
 allowBuilds:
-  hexo-util: set this to true or false
+  # hexo-util：Hexo 使用的工具依赖；允许它在安装过程中运行自身的构建脚本。
+  hexo-util: true

@@ -1,7 +1,14 @@
+# version：Dependabot 配置文件的语法版本，GitHub 当前要求填写 2。
 version: 2
+# updates：需要由 Dependabot 定期检查更新的依赖生态列表。
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 20
+  # package-ecosystem：要检查的包管理生态；npm 同样适用于 package.json 和 pnpm 锁定文件。
+  - package-ecosystem: npm
+    # directory：依赖清单所在目录；“/”表示仓库根目录。
+    directory: "/"
+    # schedule：自动检查新版本的时间安排。
+    schedule:
+      # interval：检查频率；daily 表示每个工作日检查一次。
+      interval: daily
+    # open-pull-requests-limit：Dependabot 同时保持打开状态的版本更新请求上限。
+    open-pull-requests-limit: 20
