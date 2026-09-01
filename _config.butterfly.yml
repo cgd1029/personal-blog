@@ -20,6 +20,7 @@ menu:
   分类: /categories/ || fas fa-folder-open
   标签: /tags/ || fas fa-tags
   图库: /gallery/ || fas fa-images
+  音乐: /music/ || fas fa-music
   关于: /about/ || fas fa-user
   GitHub: https://github.com/cgd1029 || fab fa-github
 
