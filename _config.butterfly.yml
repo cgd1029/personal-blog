@@ -70,6 +70,16 @@ search:
     # CDN：留空时从当前博客的 /personal-blog/search.json 读取索引。
     CDN:
 
+# busuanzi：使用 Butterfly 内置的不蒜子脚本展示基础访问统计。
+# Hexo 只会生成统计数字的显示位置，实际数据由第三方不蒜子服务计算并返回。
+busuanzi:
+  # site_uv：显示全站访客数，用于近似表示访问过网站的不同访客数量。
+  site_uv: true
+  # site_pv：显示全站浏览量；打开或刷新不同页面都会让浏览次数继续累计。
+  site_pv: true
+  # page_pv：在文章页面显示当前文章的阅读次数。
+  page_pv: true
+
 # toc：文章目录设置。
 toc:
   # post：是否在普通文章中显示目录。
@@ -102,3 +112,15 @@ aside:
   card_announcement:
     enable: true
     content: 欢迎来到我的个人博客
+  # card_webinfo：侧栏网站信息卡片，访问统计会显示在这张卡片中。
+  card_webinfo:
+    # enable：是否显示网站信息卡片。
+    enable: true
+    # post_count：是否显示已经发布的文章数量。
+    post_count: true
+    # last_push_date：是否显示网站最近更新时间。
+    last_push_date: true
+    # sort_order：卡片排序位置；留空时使用主题默认顺序。
+    sort_order:
+    # runtime_date：填写建站日期后可显示运行天数；当前留空，不显示该项目。
+    runtime_date:
